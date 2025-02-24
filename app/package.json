@@ -1,0 +1,12 @@
+{
+    "name": "docker-k8s-node-app",
+    "version": "1.0.0",
+    "description": "A simple Node.js app containerized with Docker and deployed to Kubernetes.",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2"
+    }
+  }
