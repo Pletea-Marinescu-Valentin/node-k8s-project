@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: node-app-deployment
 spec:
-  replicas: 3
+  replicas: 3  # Scales the app to 3 pods
   selector:
     matchLabels:
       app: node-app
@@ -14,7 +14,18 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: node-app:latest
-        imagePullPolicy: Never
+        image: node-app  # Ensure this matches your Docker image name
         ports:
         - containerPort: 4000
+        livenessProbe:  # 🔥 Restart pod if health check fails
+          httpGet:
+            path: /health
+            port: 4000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:  # 🩺 Pod is ready to receive traffic
+          httpGet:
+            path: /health
+            port: 4000
+          initialDelaySeconds: 5
+          periodSeconds: 5
