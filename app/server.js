@@ -50,3 +50,9 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   logger.info(`Server running on port ${PORT}`);
 });
+
+app.set('view engine', 'ejs');
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Node.js & Kubernetes App' });
+});
+
