@@ -20,7 +20,7 @@ This project demonstrates how to deploy a basic Node.js application using Kubern
 
 ```bash
 git clone https://github.com/Pletea-Marinescu-Valentin/node-k8s-project.git
-cd your-repository-name
+cd node-k8s-project
 ```
 
 ### Step 3: Start Minikube
